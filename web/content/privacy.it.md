@@ -4,7 +4,7 @@ description = "Quali dati personali tratta GPU Goblin, perché, per quanto tempo
 template = "page.html"
 [extra]
 toc = true
-updated = "2026-09-26"
+updated = "2026-10-08"
 +++
 
 GPU Goblin tratta il minor numero possibile di dati personali. Questa pagina indica quali dati,
@@ -25,9 +25,11 @@ Nicolas Michel, editore di GPU Goblin — [contact@gpugoblin.com](mailto:contact
 | Indirizzo IP pubblico e porta della tua macchina | Inviare attività e condividere dati tra macchine (visibile ad altre macchine autorizzate mentre la condivisione è attiva) | Esecuzione del servizio | Finché la macchina è attiva |
 | Ricercatori: indirizzo, laboratorio, progetti, dati inviati | Esame dell'accesso e calcoli | Esecuzione del servizio | Finché esiste l'account; dati dei calcoli secondo le impostazioni del progetto |
 | Indirizzi IP nei log del server | Sicurezza, prevenzione degli abusi | Legittimo interesse | 14 giorni |
+| Apertura delle e-mail: se e quando un messaggio è stato aperto | Verificare che le e-mail arrivino | Legittimo interesse; senza consenso, come la CNIL consente solo per questa misura | 3 mesi |
 
-GPU Goblin non vende né affitta alcun dato, non mostra pubblicità e **non effettua alcun
-tracciamento**: niente strumenti di analisi, niente script di terzi, niente cookie pubblicitari.
+GPU Goblin non vende né affitta alcun dato e non mostra pubblicità. Il sito **non effettua alcun
+tracciamento**: niente strumenti di analisi, niente script di terzi, niente cookie pubblicitari. Le
+e-mail contengono un'immagine di tracciamento, spiegata più sotto.
 
 ## Cookie e archiviazione locale
 
@@ -36,10 +38,24 @@ tua scelta del tema chiaro o scuro e, se accedi, la tua sessione, così resti co
 sono strettamente necessarie a ciò che hai chiesto e vengono cancellate quando esci o cancelli i
 dati del tuo browser.
 
+## E-mail
+
+Le e-mail di GPU Goblin, come quelle con un codice di accesso, contengono una piccola immagine
+invisibile. Il tuo programma di posta la carica dai server di Brevo quando mostra il messaggio: come
+per qualsiasi immagine online, Brevo riceve allora il tuo indirizzo IP e il nome del tuo programma
+di posta, e registra che il messaggio è stato aperto, e quando. GPU Goblin lo usa solo per
+verificare che le sue e-mail arrivino, come consente la [raccomandazione della
+CNIL](https://cnil.fr/fr/recommandation-pixel-suivi-courriels), e per nient'altro. Brevo conserva
+queste informazioni per 3 mesi.
+
+Per evitarlo, blocca il caricamento delle immagini nel tuo programma di posta: il codice resta
+leggibile, è scritto come testo.
+
 ## Chi riceve i dati
 
 - **OVH SAS** (Francia), che ospita i server.
-- **Brevo (Sendinblue SAS)** (Francia), che recapita le e-mail con i codici di accesso.
+- **Brevo (Sendinblue SAS)** (Francia), che recapita le e-mail con i codici di accesso e ne registra
+  l'apertura (vedi «E-mail»).
 - **Le macchine di altri contributori** ricevono i dati delle attività che calcolano e, mentre la
   condivisione è attiva, l'indirizzo pubblico delle macchine che condividono gli stessi dati.
 

@@ -4,7 +4,7 @@ description = "GPU Goblin hangi kişisel verileri, neden ve ne kadar süreyle i�
 template = "page.html"
 [extra]
 toc = true
-updated = "2026-09-26"
+updated = "2026-10-08"
 +++
 
 GPU Goblin mümkün olduğunca az kişisel veri işler. Bu sayfa hangi verilerin, neden ve ne kadar
@@ -25,9 +25,11 @@ GPU Goblin'in yayıncısı Nicolas Michel — [contact@gpugoblin.com](mailto:con
 | Makinenizin genel IP adresi ve portu | Görev göndermek ve makineler arasında veri paylaşmak (paylaşım açıkken yetkili diğer makineler tarafından görülebilir) | Hizmetin ifası | Makine etkin olduğu sürece |
 | Araştırmacılar: adres, laboratuvar, projeler, gönderilen veriler | Erişim incelemesi ve hesaplamalar | Hizmetin ifası | Hesap var olduğu sürece; hesaplama verileri projenin ayarlarına göre |
 | Sunucu günlüklerindeki IP adresleri | Güvenlik, kötüye kullanımın önlenmesi | Meşru menfaat | 14 gün |
+| E-postaların açılması: bir iletinin açılıp açılmadığı ve ne zaman açıldığı | E-postaların ulaştığını doğrulamak | Meşru menfaat; CNIL'in yalnızca bu ölçüm için izin verdiği gibi, onay olmadan | 3 ay |
 
-GPU Goblin hiçbir veriyi satmaz veya kiralamaz, reklam göstermez ve **hiçbir izleme yapmaz**: analiz
-aracı yok, üçüncü taraf betik yok, reklam çerezi yok.
+GPU Goblin hiçbir veriyi satmaz veya kiralamaz ve reklam göstermez. Site **hiçbir izleme yapmaz**:
+analiz aracı, üçüncü taraf betiği veya reklam çerezi yoktur. E-postalar ise aşağıda açıklanan bir
+izleme görseli içerir.
 
 ## Çerezler ve yerel depolama
 
@@ -36,10 +38,24 @@ tercihiniz ve giriş yaparsanız, oturumunuzun açık kalması için oturumunuz.
 ettiğiniz şey için kesinlikle gereklidir ve çıkış yaptığınızda ya da tarayıcı verilerinizi
 temizlediğinizde silinir.
 
+## E-postalar
+
+GPU Goblin'in e-postaları, örneğin giriş kodu içerenler, küçük ve görünmez bir görsel içerir.
+E-posta programınız iletiyi gösterirken bu görseli Brevo'nun sunucularından yükler: internetteki her
+görselde olduğu gibi Brevo bu sırada IP adresinizi ve e-posta programınızın adını alır, iletinin
+açıldığını ve ne zaman açıldığını kaydeder. GPU Goblin bunu yalnızca e-postalarının ulaştığını
+doğrulamak için kullanır, [CNIL'in
+tavsiyesi](https://cnil.fr/fr/recommandation-pixel-suivi-courriels) buna izin verir; başka hiçbir
+amaçla kullanmaz. Brevo bu bilgileri 3 ay saklar.
+
+Bundan kaçınmak için e-posta programınızda görsellerin yüklenmesini engelleyin: kod okunabilir
+kalır, metin olarak yazılmıştır.
+
 ## Verileri kimler alır?
 
 - Sunucuları barındıran **OVH SAS** (Fransa).
-- Giriş kodlarını içeren e-postaları ileten **Brevo (Sendinblue SAS)** (Fransa).
+- Giriş kodlarını içeren e-postaları ileten ve açılmalarını kaydeden **Brevo (Sendinblue SAS)**
+  (Fransa) (bkz. "E-postalar").
 - **Diğer katılımcıların makineleri**, hesapladıkları görevlerin verilerini ve paylaşım açıkken,
   aynı verileri paylaşan makinelerin genel IP adresini alır.
 
