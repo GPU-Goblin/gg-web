@@ -20,6 +20,7 @@ Key facts:
 - [FAQ](https://gpugoblin.com/faq/): cost, credits, safety, electricity, hardware, data
 - [Download](https://gpugoblin.com/download/): applications and how to verify a release
 - [About](https://gpugoblin.com/about/): author, principles, license
+- [Thanks](https://gpugoblin.com/thanks/): contributors, scientists, first testers, and the open-source projects GPU Goblin is built on
 
 ## Optional
 

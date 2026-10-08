@@ -52,7 +52,7 @@ src = re.sub(r"\{\{NOW:(.*?)\|WIN:(.*?)\}\}", lambda m: m.group(2) if windows el
 # llms-full.txt: the English text of every page in one file, for language models.
 import re as _re
 parts = ["# GPU Goblin — full text of gpugoblin.com (English)\n"]
-order = ["_index", "contribute", "research", "security", "faq", "download", "about", "privacy", "legal"]
+order = ["_index", "contribute", "research", "security", "faq", "download", "about", "thanks", "privacy", "legal"]
 for name in order:
     src = (HERE / "content" / f"{name}.md").read_text(encoding="utf-8")
     m = _re.match(r"\+\+\+\n(.*?)\n\+\+\+\n?(.*)", src, _re.S)

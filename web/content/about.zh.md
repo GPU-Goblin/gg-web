@@ -22,7 +22,7 @@ GPU Goblin 由 **Nicolas Michel** 设计与开发。他是 [LAAS-CNRS](https://w
 
 ## 致谢
 
-感谢每一位出借电脑的人，感谢把研究工作托付给这个网格的科学家，感谢最早参与测试的朋友，也感谢本项目所依赖的开源项目：Rust、Tokio、Axum、PostgreSQL、Burn、wgpu、PyTorch 和 LibTorch、egui、bubblewrap 等等。
+感谢出借电脑的人、科学家、最早的测试者，以及 GPU Goblin 所依赖的开源项目：请参阅[致谢页面](../thanks/)。
 
 ## 许可证
 

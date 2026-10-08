@@ -26,9 +26,9 @@ oficial del CNRS ni del LAAS-CNRS.
 
 ## Agradecimientos
 
-A todas las personas que prestan su ordenador, a los científicos que confían su trabajo a la red, a
-quienes la probaron primero, y a los proyectos de código abierto sobre los que está construida:
-Rust, Tokio, Axum, PostgreSQL, Burn, wgpu, PyTorch y LibTorch, egui, bubblewrap y muchos otros.
+Gracias a quienes prestan su ordenador, a los científicos, a los primeros probadores y a los
+proyectos de código abierto sobre los que se construye GPU Goblin: consulta la [página de
+agradecimientos](../thanks/).
 
 ## Licencia
 

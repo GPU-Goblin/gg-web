@@ -24,10 +24,8 @@ GPU Goblin dirancang dan dikembangkan oleh **Nicolas Michel**, anggota
 
 ## Terima kasih
 
-Kepada semua orang yang meminjamkan komputernya, kepada para ilmuwan yang memercayakan pekerjaan
-mereka kepada jaringan, kepada mereka yang pertama kali mengujinya, dan kepada proyek sumber terbuka
-yang menjadi dasarnya: Rust, Tokio, Axum, PostgreSQL, Burn, wgpu, PyTorch dan LibTorch, egui,
-bubblewrap, dan banyak lagi.
+Terima kasih kepada mereka yang meminjamkan komputernya, para ilmuwan, para penguji pertama, dan
+proyek sumber terbuka yang menjadi dasar GPU Goblin: lihat [halaman terima kasih](../thanks/).
 
 ## Lisensi
 

@@ -22,7 +22,7 @@ GPU Goblin은 **Nicolas Michel**이 설계하고 개발했습니다. 그는 툴�
 
 ## 감사의 말
 
-컴퓨터를 빌려주는 모든 분, 자신의 연구를 이 그리드에 맡겨 주신 과학자분들, 처음으로 테스트해 주신 분들, 그리고 이 프로젝트의 기반이 된 오픈 소스 프로젝트에 감사드립니다. Rust, Tokio, Axum, PostgreSQL, Burn, wgpu, PyTorch와 LibTorch, egui, bubblewrap 외에도 많은 프로젝트가 있습니다.
+컴퓨터를 빌려주는 분들, 과학자분들, 처음 테스트해 주신 분들, 그리고 GPU Goblin의 기반이 된 오픈 소스 프로젝트에 감사드립니다. [감사의 말 페이지](../thanks/)를 참고하세요.
 
 ## 라이선스
 

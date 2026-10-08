@@ -29,10 +29,8 @@ CNRS ni du LAAS-CNRS.
 
 ## Remerciements
 
-À toutes celles et ceux qui prêtent leur ordinateur, aux scientifiques qui confient leurs travaux au
-réseau de calcul, à celles et ceux qui l'ont testé en premier, et aux projets libres sur lesquels il
-repose : Rust, Tokio, Axum, PostgreSQL, Burn, wgpu, PyTorch et LibTorch, egui, bubblewrap, et bien
-d'autres.
+Merci aux contributeurs, aux scientifiques, aux premiers testeurs et aux projets libres sur lesquels
+GPU Goblin repose : voir la [page des remerciements](../thanks/).
 
 ## Licence
 

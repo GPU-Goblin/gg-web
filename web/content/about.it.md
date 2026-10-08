@@ -27,9 +27,8 @@ né del LAAS-CNRS.
 
 ## Ringraziamenti
 
-A tutti coloro che prestano il proprio computer, agli scienziati che affidano il loro lavoro alla
-rete, a chi l'ha provata per primo, e ai progetti open source su cui è costruita: Rust, Tokio, Axum,
-PostgreSQL, Burn, wgpu, PyTorch e LibTorch, egui, bubblewrap e molti altri.
+Grazie a chi presta il proprio computer, agli scienziati, ai primi tester e ai progetti open source
+su cui si basa GPU Goblin: vedi la [pagina dei ringraziamenti](../thanks/).
 
 ## Licenza
 

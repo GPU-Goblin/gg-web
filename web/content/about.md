@@ -25,9 +25,8 @@ the CNRS or of LAAS-CNRS.
 
 ## Thanks
 
-To everyone who lends their computer, to the scientists who trust the grid with their work, to
-those who tested it first, and to the open-source projects it is built on: Rust, Tokio, Axum,
-PostgreSQL, Burn, wgpu, PyTorch and LibTorch, egui, bubblewrap, and many others.
+Thanks to the contributors, the scientists, the first testers and the open-source projects GPU
+Goblin is built on: see the [thanks page](../thanks/).
 
 ## License
 

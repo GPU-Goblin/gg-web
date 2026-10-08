@@ -27,10 +27,8 @@ Dienst des CNRS oder des LAAS-CNRS.
 
 ## Danke
 
-An alle, die ihren Computer leihen, an die Wissenschaftlerinnen und Wissenschaftler, die dem
-Rechennetz ihre Arbeit anvertrauen, an alle, die es als Erste getestet haben, und an die
-Open-Source-Projekte, auf denen es aufbaut: Rust, Tokio, Axum, PostgreSQL, Burn, wgpu, PyTorch und
-LibTorch, egui, bubblewrap und viele andere.
+Danke an alle, die ihren Computer leihen, an die Forschenden, an die ersten Testerinnen und Tester
+und an die Open-Source-Projekte, auf denen GPU Goblin aufbaut: siehe die [Danksagung](../thanks/).
 
 ## Lizenz
 

@@ -25,10 +25,8 @@ CNRS hay của LAAS-CNRS.
 
 ## Lời cảm ơn
 
-Gửi đến tất cả những ai cho mượn máy tính của mình, đến các nhà khoa học tin tưởng giao công việc
-cho mạng lưới, đến những người đầu tiên thử nghiệm nó, và đến các dự án mã nguồn mở làm nền tảng
-cho nó: Rust, Tokio, Axum, PostgreSQL, Burn, wgpu, PyTorch và LibTorch, egui, bubblewrap, cùng
-nhiều dự án khác.
+Cảm ơn những người cho mượn máy tính, các nhà khoa học, những người thử nghiệm đầu tiên và các dự án
+mã nguồn mở làm nền tảng cho GPU Goblin: xem [trang lời cảm ơn](../thanks/).
 
 ## Giấy phép
 

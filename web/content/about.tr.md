@@ -25,9 +25,8 @@ geliştirilmektedir. Bu kişisel bir projedir: CNRS'in ya da LAAS-CNRS'in resmî
 
 ## Teşekkürler
 
-Bilgisayarını ödünç veren herkese, çalışmalarını hesaplama ağına emanet eden bilim insanlarına, onu
-ilk test edenlere ve üzerine inşa edildiği açık kaynak projelere teşekkürler: Rust, Tokio, Axum,
-PostgreSQL, Burn, wgpu, PyTorch ve LibTorch, egui, bubblewrap ve daha birçoğu.
+Bilgisayarını ödünç verenlere, bilim insanlarına, ilk test edenlere ve GPU Goblin'in üzerine inşa
+edildiği açık kaynak projelere teşekkürler: [teşekkür sayfasına](../thanks/) bakın.
 
 ## Lisans
 
