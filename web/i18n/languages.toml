@@ -1,0 +1,7 @@
+# The site's languages, in menu order, with their names in themselves.
+languages = [
+  ["en", "English"], ["zh", "中文"], ["hi", "हिन्दी"], ["es", "Español"], ["fr", "Français"],
+  ["bn", "বাংলা"], ["pt", "Português"], ["ru", "Русский"], ["id", "Bahasa Indonesia"],
+  ["de", "Deutsch"], ["ja", "日本語"], ["tr", "Türkçe"], ["vi", "Tiếng Việt"], ["ko", "한국어"],
+  ["it", "Italiano"],
+]

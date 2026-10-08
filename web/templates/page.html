@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap narrow">
+    <h1>{{ page.title }}</h1>
+    {%- if page.extra.lead %}<p class="lead">{{ page.extra.lead }}</p>{% endif %}
+    {%- if page.extra.cta %}
+    {%- if page.extra.cta_url %}{% set cta_href = page.extra.cta_url %}{% else %}{% set cta_href = get_url(path='@/' ~ page.extra.cta_page ~ '.md', lang=lang) %}{% endif %}
+    <div class="actions"><a class="btn" href="{{ cta_href }}">{{ page.extra.cta }}</a>
+    {%- if page.extra.cta2 %} {% if page.extra.cta2_url %}{% set cta2_href = page.extra.cta2_url %}{% else %}{% set cta2_href = get_url(path='@/' ~ page.extra.cta2_page ~ '.md', lang=lang) %}{% endif %}<a class="btn btn-ghost" href="{{ cta2_href }}">{{ page.extra.cta2 }}</a>{% endif %}</div>
+    {%- endif %}
+  </div>
+</section>
+<section class="band">
+  <div class="wrap narrow">
+    {%- if page.extra.toc and page.toc | length > 2 %}
+    <nav class="toc" aria-label="{{ trans(key='on_this_page', lang=lang) }}">
+      <h2>{{ trans(key="on_this_page", lang=lang) }}</h2>
+      <ol>{% for h in page.toc %}<li><a href="{{ h.permalink | safe }}">{{ h.title }}</a></li>{% endfor %}</ol>
+    </nav>
+    {%- endif %}
+    <div class="prose">{{ page.content | safe }}</div>
+    {%- if page.extra.updated %}<p class="muted small">{{ trans(key="updated", lang=lang) }} {{ page.extra.updated }}</p>{% endif %}
+  </div>
+</section>
+{% endblock %}

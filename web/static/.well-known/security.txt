@@ -1,0 +1,5 @@
+Contact: mailto:contact@gpugoblin.com
+Expires: 2027-09-26T00:00:00.000Z
+Preferred-Languages: en, fr
+Canonical: https://gpugoblin.com/.well-known/security.txt
+Policy: https://gpugoblin.com/security/

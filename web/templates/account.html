@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap narrow">
+    <h1>{{ page.title }}</h1>
+    {%- if page.extra.lead %}<p class="lead">{{ page.extra.lead }}</p>{% endif %}
+  </div>
+</section>
+<section class="band">
+  <div class="wrap narrow">
+    <div id="account" class="card account" data-api="/contributor/v1" data-grid="{{ config.extra.grid_url }}" aria-live="polite">
+      <noscript><p>{{ page.extra.noscript }}</p></noscript>
+    </div>
+    <div class="prose">{{ page.content | safe }}</div>
+  </div>
+</section>
+<script type="application/json" id="account-texts">
+{
+  {%- for k in ["acc_title", "acc_intro", "acc_email_label", "acc_email_placeholder", "acc_send", "acc_code_title", "acc_code_sent", "acc_code_label", "acc_continue", "acc_other", "acc_resend", "acc_resent", "acc_signed_as", "acc_signout", "acc_machines", "acc_no_machines", "acc_col_name", "acc_col_state", "acc_col_accepted", "acc_working", "acc_stopped", "acc_add", "acc_add_app", "acc_add_manual", "acc_new_code", "acc_code_once", "acc_install_cmd", "acc_copy", "acc_copied", "acc_suspended", "err_invalid_email", "err_wrong_code", "err_closed", "err_unreachable", "err_signed_out", "err_generic", "nav_download", "res_title", "res_intro", "res_name", "res_lab", "res_purpose", "res_purpose_hint", "res_send", "res_pending", "res_approved", "res_rejected", "res_suspended", "res_projects", "res_no_projects", "res_col_project", "res_col_credits", "res_token", "res_token_once", "res_token_use", "state_active", "state_suspended", "state_closed", "role_owner", "role_member", "role_viewer", "err_domain", "err_request", "acc_col_state"] %}
+  "{{ k }}": {{ trans(key=k, lang=lang) | json_encode() | safe }},
+  {%- endfor %}
+  "download_url": "{{ get_url(path='@/download.md', lang=lang) }}",
+  "grid_url": "{{ config.extra.grid_url }}"
+}
+</script>
+{% endblock %}
+{% block scripts %}<script src="{{ get_url(path='js/account.js', cachebust=true) }}" defer></script>{% endblock %}

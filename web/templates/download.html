@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap narrow">
+    <h1>{{ page.title }}</h1>
+    {%- if page.extra.lead %}<p class="lead">{{ page.extra.lead }}</p>{% endif %}
+  </div>
+</section>
+<section class="band">
+  <div class="wrap">
+    <div class="grid2">
+      {%- for d in page.extra.items %}
+      <article class="card dl">
+        <div class="dl-head"><h2>{{ d.name }}</h2><span class="tag{% if d.status == 'planned' or (d.status == 'windows' and not config.extra.windows_available) %} tag-muted{% endif %}">{{ d.platform }}</span></div>
+        {%- set win_ready = d.status == "windows" and config.extra.windows_available %}
+        <p>{% if win_ready and d.text_win %}{{ d.text_win }}{% else %}{{ d.text }}{% endif %}</p>
+        {%- if (d.status == "ready" or win_ready) and config.extra.releases_published %}
+        <a class="btn" href="{{ config.extra.releases_url }}{{ d.file }}">{{ trans(key="download_cta", lang=lang) }}</a>
+        {%- elif d.status == "windows" and not config.extra.windows_available %}
+        <p class="small"><strong>{{ d.when }}</strong> <a href="{{ get_url(path='@/account.md', lang=lang) }}">{{ trans(key="win_notify_cta", lang=lang) }} →</a></p>
+        {%- elif d.status == "planned" %}
+        <p class="muted small">{{ d.when }}</p>
+        {%- else %}
+        <p class="muted small">{{ trans(key="dl_soon", lang=lang) }}</p>
+        {%- endif %}
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+<section class="band alt">
+  <div class="wrap narrow">
+    <div class="prose">{{ page.content | safe }}</div>
+  </div>
+</section>
+{% endblock %}
+{% block jsonld %},
+    {
+      "@type": "SoftwareApplication",
+      "name": "GPU Goblin",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "{% if config.extra.windows_available %}Windows, Linux{% else %}Linux{% endif %}",
+      "description": {{ page.description | default(value="") | json_encode() | safe }},
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+      "license": "https://polyformproject.org/licenses/noncommercial/1.0.0/",
+      "author": {"@id": "{{ config.base_url }}/#organization"}
+    }
+{%- endblock %}

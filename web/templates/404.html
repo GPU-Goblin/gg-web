@@ -1,0 +1,21 @@
+{%- set lang = "en" -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>404 · GPU Goblin</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="{{ get_url(path='css/site.css', cachebust=true) }}">
+<script src="{{ get_url(path='js/theme.js', cachebust=true) }}"></script>
+</head>
+<body>
+<main id="main" class="notfound">
+  <img src="/img/logo.svg" alt="GPU Goblin" width="96" height="96">
+  <h1>404</h1>
+  <p>{{ trans(key="notfound_text", lang="en") }} · {{ trans(key="notfound_text", lang="fr") }}</p>
+  <p><a class="btn" href="/">{{ trans(key="back_home", lang="en") }}</a> <a class="btn btn-ghost" href="/fr/">{{ trans(key="back_home", lang="fr") }}</a></p>
+</main>
+</body>
+</html>

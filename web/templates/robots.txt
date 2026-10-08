@@ -1,0 +1,31 @@
+# GPU Goblin welcomes search engines and AI assistants: every public page may be read and cited.
+# A summary for language models: {{ get_url(path="llms.txt") }}
+User-agent: *
+Allow: /
+Disallow: /contributor/
+
+# AI crawlers, named so that none has to guess.
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Mistral-User
+Allow: /
+
+Sitemap: {{ get_url(path="sitemap.xml") }}

@@ -1,0 +1,32 @@
+# The site's configuration without its languages: build.py adds one [languages.<code>] block per
+# i18n/<code>.toml (title, description, interface texts) and writes config.toml (not versioned).
+base_url = "https://gpugoblin.com"
+title = "GPU Goblin"
+default_language = "en"
+compile_sass = false
+build_search_index = false
+generate_feeds = false
+minify_html = true
+
+[markdown]
+smart_punctuation = true
+
+[extra]
+grid_url = "https://grid.gpugoblin.com"
+portal_url = "https://grid.gpugoblin.com/portal"
+contact = "contact@gpugoblin.com"
+author = "Nicolas Michel"
+lab = "LAAS-CNRS"
+lab_url = "https://www.laas.fr"
+linkedin = "https://www.linkedin.com/in/nicolas-michel-3161532b4/"
+source_url = "https://github.com/GPU-Goblin"
+# Downloads are offered only once a signed release exists (the site never asks anyone to trust an
+# unsigned binary). Set to true, with the release directory, when the first release is published.
+releases_published = false
+releases_url = "https://grid.gpugoblin.com/releases/latest/"
+# The Windows version: false until it is released. Every text that depends on it has two versions
+# (i18n keys <k>_now / <k>_win through the `os` shortcode, FAQ answers a / a_win, download cards
+# text / text_win): set to true and rebuild, and the whole site speaks of Windows as available.
+windows_available = false
+# Languages in menu order, with their names in themselves: written by build.py from i18n/languages.toml.
+# @LANGUAGES@

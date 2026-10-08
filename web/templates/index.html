@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+{%- set x = section.extra -%}
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-text">
+      <span class="badge">{{ trans(key="beta", lang=lang) }}</span>
+      <h1>{{ x.hero_title }}</h1>
+      <p class="lead">{{ x.hero_lead }}</p>
+      <div class="actions">
+        <a class="btn" href="{{ get_url(path='@/contribute.md', lang=lang) }}">{{ trans(key="contribute_cta", lang=lang) }}</a>
+        <a class="btn btn-ghost" href="{{ get_url(path='@/research.md', lang=lang) }}">{{ trans(key="nav_research", lang=lang) }}</a>
+      </div>
+      {%- if not config.extra.windows_available %}<p class="soon"><a href="{{ get_url(path='@/download.md', lang=lang) }}">{{ trans(key="win_soon", lang=lang) }} →</a></p>{% endif %}
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <img src="{{ get_url(path='img/logo.svg') }}" alt="" width="200" height="200">
+    </div>
+  </div>
+</section>
+
+<section class="band" id="how">
+  <div class="wrap">
+    <h2 class="center">{{ x.steps_title }}</h2>
+    <ol class="steps">
+      {%- for s in x.steps %}
+      <li class="card"><span class="num">{{ loop.index }}</span><h3>{{ s.title }}</h3><p>{{ s.text }}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap two">
+    {%- for side in x.sides %}
+    <article class="card side">
+      <h2>{{ side.title }}</h2>
+      <p>{{ side.text }}</p>
+      <ul class="checks">{% for p in side.points %}<li>{{ p }}</li>{% endfor %}</ul>
+      <a class="btn{% if not loop.first %} btn-ghost{% endif %}" href="{{ get_url(path='@/' ~ side.page ~ '.md', lang=lang) }}">{{ side.cta }}</a>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2 class="center">{{ x.trust_title }}</h2>
+    <p class="center lead narrow">{{ x.trust_lead }}</p>
+    <div class="grid4">
+      {%- for t in x.trust %}
+      <div class="card feature"><h3>{{ t.title }}</h3><p>{{ t.text }}</p></div>
+      {%- endfor %}
+    </div>
+    <p class="center"><a href="{{ get_url(path='@/security.md', lang=lang) }}">{{ trans(key="read_more", lang=lang) }} →</a></p>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap narrow">
+    <h2>{{ x.status_title }}</h2>
+    <div class="prose">{{ section.content | safe }}</div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap narrow">
+    <h2>{{ x.faq_title }}</h2>
+    {%- for f in x.faq %}
+    <details class="qa"><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
+    {%- endfor %}
+    <p><a href="{{ get_url(path='@/faq.md', lang=lang) }}">{{ trans(key="nav_faq", lang=lang) }} →</a></p>
+  </div>
+</section>
+
+<section class="band final">
+  <div class="wrap center">
+    <h2>{{ x.final_title }}</h2>
+    <p class="lead narrow">{{ x.final_text }}</p>
+    <div class="actions center">
+      <a class="btn" href="{{ get_url(path='@/account.md', lang=lang) }}">{{ trans(key="contribute_cta", lang=lang) }}</a>
+      <a class="btn btn-ghost" href="{{ get_url(path='@/research.md', lang=lang) }}">{{ trans(key="research_cta", lang=lang) }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block jsonld %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for f in section.extra.faq %}
+        {"@type": "Question", "name": {{ f.q | json_encode() | safe }}, "acceptedAnswer": {"@type": "Answer", "text": {{ f.a | json_encode() | safe }}}}{% if not loop.last %},{% endif %}
+        {%- endfor %}
+      ]
+    }
+{%- endblock %}

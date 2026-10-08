@@ -1,0 +1,30 @@
+# GPU Goblin
+
+> GPU Goblin is a volunteer computing grid for scientific research: people lend their computer's graphics card (or processor) when they do not need it, and researchers can use it for research that needs a lot of computing power: large matrix products, computations on graphs of tensor operations, and training of machine-learning models (captured from PyTorch). Only computation kinds from the platform's catalog run, never arbitrary code; new kinds are added over time. Contributors' machines run only GPU Goblin's own computation code in a sandbox, never code sent by researchers; every result is verified by an independent recomputation or by comparison with another contributor's result before it counts. Free for research; credits count contributions and have no monetary value. Designed and developed by Nicolas Michel (LAAS-CNRS), a personal project, in beta preparation (September 2026).
+
+Key facts:
+
+- Contributors: {{NOW:Linux x86-64|WIN:Windows 10/11 and Linux x86-64}} desktop application (system tray) and console mode for servers; graphics cards through Vulkan (NVIDIA, AMD, Intel) or native CUDA (NVIDIA); controls for pause, idle-only, hours, temperature and memory; multi-GPU machines supported. {{NOW:A Windows version is coming very soon; an Android version is planned.|WIN:An Android version is planned.}}
+- Security: each task runs under bubblewrap without network access, restricted by Landlock and seccomp, with cgroup limits; inputs checked against signed manifests and SHA-256 digests; signed releases verified with ssh-keygen.
+- Honest limits: contributors receive pieces of the data of the tasks they compute (arrays of numbers without names or descriptions, text as numeric tokens, only what each task needs), not encrypted during the computation; with peer sharing on (default), a machine's public address is visible to other machines authorized on the same data.
+- Researchers: computations and models larger than any single machine are cut automatically into stages, tiles and micro-batches; data stays by default on the lab's own node; access is requested from the account page.
+- License: PolyForm Noncommercial 1.0.0 (source available, free for research and noncommercial use).
+- Contact: contact@gpugoblin.com
+
+## Main pages
+
+- [Home](https://gpugoblin.com/): what GPU Goblin is and how it works
+- [Lend your GPU](https://gpugoblin.com/contribute/): what runs on a contributor's machine, controls, requirements
+- [For researchers](https://gpugoblin.com/research/): what can be computed, how a computation runs, data handling, access
+- [Security and trust](https://gpugoblin.com/security/): sandbox, verification of results, what is not protected
+- [FAQ](https://gpugoblin.com/faq/): cost, credits, safety, electricity, hardware, data
+- [Download](https://gpugoblin.com/download/): applications and how to verify a release
+- [About](https://gpugoblin.com/about/): author, principles, license
+
+## Optional
+
+- [Full text of the site in one file](https://gpugoblin.com/llms-full.txt)
+- [Privacy policy](https://gpugoblin.com/privacy/)
+- [Legal notice](https://gpugoblin.com/legal/)
+- [Source code](https://github.com/GPU-Goblin)
+- [French version of the site](https://gpugoblin.com/fr/)

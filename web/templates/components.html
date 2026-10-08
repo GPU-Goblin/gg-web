@@ -1,0 +1,8 @@
+{#- Components used inside page contents (Zola 0.23 / Tera 2). They see only their parameters. -#}
+
+{#- A text that depends on the Windows version being out: i18n key `<k>_now` today, `<k>_win` once
+    config.extra.windows_available is true (then every page switches at the next build). -#}
+{% component os(k, lang, win) %}{% if win %}{{ trans(key=k ~ "_win", lang=lang) | markdown(inline=true) | safe }}{% else %}{{ trans(key=k ~ "_now", lang=lang) | markdown(inline=true) | safe }}{% endif %}{% endcomponent os %}
+
+{#- Until the Windows version is out: invite Windows users to create their account and be told. -#}
+{% component notify(lang, win) %}{% if not win %}<div class="notice"><strong>{{ trans(key="win_soon", lang=lang) }}</strong> {{ trans(key="win_notify", lang=lang) }} <a href="{{ get_url(path='@/account.md', lang=lang) }}">{{ trans(key="win_notify_cta", lang=lang) }} →</a></div>{% endif %}{% endcomponent notify %}

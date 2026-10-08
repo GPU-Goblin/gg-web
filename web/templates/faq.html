@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap narrow">
+    <h1>{{ page.title }}</h1>
+    {%- if page.extra.lead %}<p class="lead">{{ page.extra.lead }}</p>{% endif %}
+  </div>
+</section>
+<section class="band">
+  <div class="wrap narrow">
+    {%- for group in page.extra.groups %}
+    <h2 id="{{ group.id }}">{{ group.title }}</h2>
+    {%- for f in group.items %}
+    {%- if config.extra.windows_available and f.a_win %}{% set ans = f.a_win %}{% else %}{% set ans = f.a %}{% endif %}
+    <details class="qa"><summary>{{ f.q }}</summary><p>{{ ans }}</p></details>
+    {%- endfor %}
+    {%- endfor %}
+    <div class="prose">{{ page.content | safe }}</div>
+  </div>
+</section>
+{% endblock %}
+{% block jsonld %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- set_global first = true %}
+        {%- for group in page.extra.groups %}
+        {%- for f in group.items %}
+        {% if not first %},{% endif %}{"@type": "Question", "name": {{ f.q | json_encode() | safe }}, "acceptedAnswer": {"@type": "Answer", "text": {% if config.extra.windows_available and f.a_win %}{{ f.a_win | json_encode() | safe }}{% else %}{{ f.a | json_encode() | safe }}{% endif %}}}
+        {%- set_global first = false %}
+        {%- endfor %}
+        {%- endfor %}
+      ]
+    }
+{%- endblock %}

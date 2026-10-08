@@ -1,0 +1,171 @@
+{%- if page %}{% set this = page %}{% else %}{% set this = section %}{% endif -%}
+{%- set is_home = section and section.path == "/" or section and section.path == "/" ~ lang ~ "/" -%}
+{%- set site_title = trans(key="site_title", lang=lang) -%}
+{%- if is_home -%}
+  {%- set head_title = site_title -%}
+  {%- set head_desc = trans(key="site_description", lang=lang) -%}
+{%- else -%}
+  {%- set head_title = this.title ~ " · GPU Goblin" -%}
+  {%- set head_desc = this.description | default(value=trans(key="site_description", lang=lang)) -%}
+{%- endif -%}
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ head_title }}</title>
+<meta name="description" content="{{ head_desc }}">
+<link rel="canonical" href="{{ this.permalink }}">
+{%- for t in this.translations %}
+<link rel="alternate" hreflang="{{ t.lang }}" href="{{ t.permalink }}">
+{%- if t.lang == "en" %}
+<link rel="alternate" hreflang="x-default" href="{{ t.permalink }}">
+{%- endif %}
+{%- endfor %}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GPU Goblin">
+<meta property="og:title" content="{{ head_title }}">
+<meta property="og:description" content="{{ head_desc }}">
+<meta property="og:url" content="{{ this.permalink }}">
+<meta property="og:image" content="{{ get_url(path='img/og.png') }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f1217" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f4f7" media="(prefers-color-scheme: light)">
+<link rel="icon" href="{{ get_url(path='favicon.svg') }}" type="image/svg+xml">
+<link rel="icon" href="{{ get_url(path='favicon-32.png') }}" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{ get_url(path='apple-touch-icon.png') }}">
+<link rel="preload" href="{{ get_url(path='fonts/inter-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ get_url(path='css/site.css', cachebust=true) }}">
+<script src="{{ get_url(path='js/theme.js', cachebust=true) }}"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ config.base_url }}/#organization",
+      "name": "GPU Goblin",
+      "url": "{{ config.base_url }}/",
+      "logo": "{{ get_url(path='img/logo-512.png') }}",
+      "email": "{{ config.extra.contact }}",
+      "description": {{ trans(key="site_description", lang="en") | json_encode() | safe }},
+      "founder": {
+        "@type": "Person",
+        "name": "{{ config.extra.author }}",
+        "sameAs": ["{{ config.extra.linkedin }}"],
+        "affiliation": {"@type": "ResearchOrganization", "name": "{{ config.extra.lab }}", "url": "{{ config.extra.lab_url }}"}
+      },
+      "sameAs": ["{{ config.extra.source_url }}"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ config.base_url }}/#website",
+      "url": "{{ config.base_url }}/",
+      "name": "GPU Goblin",
+      "inLanguage": [{% for l in config.extra.languages %}"{{ l[0] }}"{% if not loop.last %}, {% endif %}{% endfor %}],
+      "publisher": {"@id": "{{ config.base_url }}/#organization"}
+    },
+    {
+      "@type": "WebPage",
+      "url": "{{ this.permalink }}",
+      "name": {{ head_title | json_encode() | safe }},
+      "description": {{ head_desc | json_encode() | safe }},
+      "inLanguage": "{{ lang }}",
+      "isPartOf": {"@id": "{{ config.base_url }}/#website"}
+    }
+    {%- block jsonld %}{% endblock %}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">{{ trans(key="skip", lang=lang) }}</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="{{ get_url(path='@/_index.md', lang=lang) }}" aria-label="GPU Goblin">
+      <img src="{{ get_url(path='img/logo.svg') }}" alt="" width="36" height="36">
+      <span>GPU Goblin</span>
+    </a>
+    <nav class="nav" aria-label="{{ trans(key='menu', lang=lang) }}">
+      <input type="checkbox" id="nav-open" class="nav-toggle-box">
+      <label for="nav-open" class="nav-toggle" aria-label="{{ trans(key='menu', lang=lang) }}"><span></span></label>
+      <ul class="nav-links">
+        {%- for item in [["contribute", "nav_contribute"], ["research", "nav_research"], ["download", "nav_download"], ["security", "nav_security"], ["faq", "nav_faq"], ["about", "nav_about"]] %}
+        {%- set url = get_url(path="@/" ~ item[0] ~ ".md", lang=lang) %}
+        <li><a href="{{ url }}"{% if current_url == url %} aria-current="page"{% endif %}>{{ trans(key=item[1], lang=lang) }}</a></li>
+        {%- endfor %}
+        <li class="nav-account"><a class="btn btn-small" href="{{ get_url(path='@/account.md', lang=lang) }}">{{ trans(key="nav_account", lang=lang) }}</a></li>
+      </ul>
+    </nav>
+    <div class="tools">
+      <details class="lang">
+        <summary aria-label="{{ trans(key='language', lang=lang) }}">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 0c2.5 2.4 3.8 5.4 3.8 9s-1.3 6.6-3.8 9m0-18C9.5 5.4 8.2 8.4 8.2 12s1.3 6.6 3.8 9M3.5 9h17M3.5 15h17"/></svg>
+          <span>{{ lang | upper }}</span>
+        </summary>
+        <ul>
+          {%- for l in config.extra.languages %}
+          {%- set_global target = "" %}
+          {%- for t in this.translations %}{% if t.lang == l[0] %}{% set_global target = t.permalink %}{% endif %}{% endfor %}
+          {%- if target == "" %}{% set_global target = get_url(path="@/_index.md", lang=l[0]) %}{% endif %}
+          <li><a href="{{ target }}" hreflang="{{ l[0] }}" lang="{{ l[0] }}"{% if l[0] == lang %} aria-current="true"{% endif %}>{{ l[1] }}</a></li>
+          {%- endfor %}
+        </ul>
+      </details>
+      <button type="button" class="theme" id="theme" aria-label="{{ trans(key='theme', lang=lang) }}" title="{{ trans(key='theme', lang=lang) }}">
+        <svg class="sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <a class="brand" href="{{ get_url(path='@/_index.md', lang=lang) }}"><img src="{{ get_url(path='img/logo.svg') }}" alt="" width="32" height="32"><span>GPU Goblin</span></a>
+      <p>{{ trans(key="footer_tagline", lang=lang) }}</p>
+      <p class="muted small">{{ trans(key="footer_made", lang=lang) }}</p>
+    </div>
+    <div>
+      <h2>{{ trans(key="footer_project", lang=lang) }}</h2>
+      <ul>
+        <li><a href="{{ get_url(path='@/contribute.md', lang=lang) }}">{{ trans(key="nav_contribute", lang=lang) }}</a></li>
+        <li><a href="{{ get_url(path='@/research.md', lang=lang) }}">{{ trans(key="nav_research", lang=lang) }}</a></li>
+        <li><a href="{{ get_url(path='@/download.md', lang=lang) }}">{{ trans(key="nav_download", lang=lang) }}</a></li>
+        <li><a href="{{ get_url(path='@/about.md', lang=lang) }}">{{ trans(key="nav_about", lang=lang) }}</a></li>
+        <li><a href="{{ config.extra.source_url }}" rel="noopener">{{ trans(key="footer_source", lang=lang) }}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>{{ trans(key="footer_help", lang=lang) }}</h2>
+      <ul>
+        <li><a href="{{ get_url(path='@/faq.md', lang=lang) }}">{{ trans(key="nav_faq", lang=lang) }}</a></li>
+        <li><a href="{{ get_url(path='@/security.md', lang=lang) }}">{{ trans(key="nav_security", lang=lang) }}</a></li>
+        <li><a href="mailto:{{ config.extra.contact }}">{{ trans(key="footer_contact", lang=lang) }}</a></li>
+        <li><a href="{{ get_url(path='@/legal.md', lang=lang) }}">{{ trans(key="footer_legal", lang=lang) }}</a></li>
+        <li><a href="{{ get_url(path='@/privacy.md', lang=lang) }}">{{ trans(key="footer_privacy", lang=lang) }}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>{{ trans(key="language", lang=lang) }}</h2>
+      <ul class="foot-langs">
+        {%- for l in config.extra.languages %}
+        <li><a href="{{ get_url(path='@/_index.md', lang=l[0]) }}" hreflang="{{ l[0] }}" lang="{{ l[0] }}">{{ l[1] }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 {{ config.extra.author }} · {{ trans(key="footer_license", lang=lang) }}</span>
+    {%- if lang != "en" and lang != "fr" %}<span class="muted">{{ trans(key="footer_translation", lang=lang) }}</span>{% endif %}
+  </div>
+</footer>
+<script src="{{ get_url(path='js/site.js', cachebust=true) }}" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

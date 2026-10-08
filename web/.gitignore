@@ -1,0 +1,4 @@
+config.toml
+public/
+static/llms-full.txt
+static/llms.txt

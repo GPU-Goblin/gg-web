@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b0d11"/><stop offset="1" stop-color="#151a22"/></linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.45" r="0.5"><stop offset="0" stop-color="#3ddc84" stop-opacity="0.35"/><stop offset="1" stop-color="#3ddc84" stop-opacity="0"/></radialGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ddc84"/><stop offset="1" stop-color="#2bc7d9"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(770 135) scale(3.6)">
+    <rect width="100" height="100" rx="24" fill="url(#g)"/>
+    <g fill="#0f1217"><path d="M29 41 29 60 7 25zM71 41 71 60 93 25z"/><rect x="25" y="33" width="50" height="46" rx="11"/><rect x="35.5" y="76" width="6" height="11" rx="2"/><rect x="47" y="76" width="6" height="11" rx="2"/><rect x="58.5" y="76" width="6" height="11" rx="2"/></g>
+    <g fill="#ccffe0"><circle cx="39" cy="55.5" r="6.2"/><circle cx="61" cy="55.5" r="6.2"/></g>
+  </g>
+</svg>
