@@ -22,7 +22,7 @@ linkedin = "https://www.linkedin.com/in/nicolas-michel-3161532b4/"
 source_url = "https://github.com/GPU-Goblin"
 # Downloads are offered only once a signed release exists (the site never asks anyone to trust an
 # unsigned binary). Set to true, with the release directory, when the first release is published.
-releases_published = false
+releases_published = true
 releases_url = "https://grid.gpugoblin.com/releases/latest/"
 # The Windows version: false until it is released. Every text that depends on it has two versions
 # (i18n keys <k>_now / <k>_win through the `os` shortcode, FAQ answers a / a_win, download cards

@@ -28,7 +28,13 @@ ssh-keygen -Y verify -f allowed_signers -I release@gpu-goblin -n gg-release \
 sha256sum --ignore-missing -c SHA256SUMS
 ```
 
-`allowed_signers` 文件包含发布公钥。其指纹将随首个版本发布在本页面上；请将它与您通过其他渠道获得的指纹进行比对。
+请将这一行（即发布公钥）保存到名为 `allowed_signers` 的文件中：
+
+```
+release@gpu-goblin namespaces="gg-release" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVp1adRtKn6v2iU8hG/jSMsIALjae/LkpY3AODuih9v
+```
+
+其指纹为 `SHA256:673XukOsx9kY85im+4qIA2IRxZU3+bEFVaD2VZwyBcM`；请将它与您通过其他渠道获得的指纹进行比对。
 
 ## 系统要求
 

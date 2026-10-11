@@ -28,9 +28,14 @@ ssh-keygen -Y verify -f allowed_signers -I release@gpu-goblin -n gg-release \
 sha256sum --ignore-missing -c SHA256SUMS
 ```
 
-Tệp `allowed_signers` chứa khóa công khai của bản phát hành. Dấu vân tay của nó sẽ được công bố
-trên trang này cùng bản phát hành đầu tiên; hãy so sánh với dấu vân tay bạn nhận được qua một kênh
-khác.
+Lưu dòng này, tức khóa công khai của bản phát hành, vào một tệp tên là `allowed_signers`:
+
+```
+release@gpu-goblin namespaces="gg-release" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVp1adRtKn6v2iU8hG/jSMsIALjae/LkpY3AODuih9v
+```
+
+Dấu vân tay của nó là `SHA256:673XukOsx9kY85im+4qIA2IRxZU3+bEFVaD2VZwyBcM`; hãy so sánh với dấu vân
+tay bạn nhận được qua một kênh khác.
 
 ## Yêu cầu
 

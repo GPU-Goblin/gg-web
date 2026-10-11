@@ -28,7 +28,13 @@ ssh-keygen -Y verify -f allowed_signers -I release@gpu-goblin -n gg-release \
 sha256sum --ignore-missing -c SHA256SUMS
 ```
 
-`allowed_signers` ファイルにはリリース用の公開鍵が入っています。そのフィンガープリントは最初のリリースと同時にこのページで公開します。別の経路で入手したものと照らし合わせてください。
+リリース用の公開鍵であるこの行を、`allowed_signers` という名前のファイルに保存してください。
+
+```
+release@gpu-goblin namespaces="gg-release" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVp1adRtKn6v2iU8hG/jSMsIALjae/LkpY3AODuih9v
+```
+
+フィンガープリントは `SHA256:673XukOsx9kY85im+4qIA2IRxZU3+bEFVaD2VZwyBcM` です。別の経路で入手したものと照らし合わせてください。
 
 ## 動作環境
 

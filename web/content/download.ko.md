@@ -28,7 +28,13 @@ ssh-keygen -Y verify -f allowed_signers -I release@gpu-goblin -n gg-release \
 sha256sum --ignore-missing -c SHA256SUMS
 ```
 
-`allowed_signers` 파일에는 릴리스 공개 키가 들어 있습니다. 그 지문은 첫 릴리스와 함께 이 페이지에 게시됩니다. 다른 경로로 받은 지문과 비교해 보세요.
+릴리스 공개 키인 이 줄을 `allowed_signers`라는 이름의 파일에 저장하세요.
+
+```
+release@gpu-goblin namespaces="gg-release" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVp1adRtKn6v2iU8hG/jSMsIALjae/LkpY3AODuih9v
+```
+
+그 지문은 `SHA256:673XukOsx9kY85im+4qIA2IRxZU3+bEFVaD2VZwyBcM`입니다. 다른 경로로 받은 지문과 비교해 보세요.
 
 ## 요구 사항
 

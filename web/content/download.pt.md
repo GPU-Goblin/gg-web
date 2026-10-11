@@ -28,8 +28,14 @@ ssh-keygen -Y verify -f allowed_signers -I release@gpu-goblin -n gg-release \
 sha256sum --ignore-missing -c SHA256SUMS
 ```
 
-O arquivo `allowed_signers` contém a chave pública de publicação. Sua impressão digital será
-publicada nesta página com a primeira versão; compare-a com a que você receber por outro canal.
+Salve esta linha, a chave pública de publicação, em um arquivo chamado `allowed_signers`:
+
+```
+release@gpu-goblin namespaces="gg-release" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVp1adRtKn6v2iU8hG/jSMsIALjae/LkpY3AODuih9v
+```
+
+Sua impressão digital é `SHA256:673XukOsx9kY85im+4qIA2IRxZU3+bEFVaD2VZwyBcM`; compare-a com a que
+você receber por outro canal.
 
 ## Requisitos
 

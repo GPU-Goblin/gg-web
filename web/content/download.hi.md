@@ -28,8 +28,14 @@ ssh-keygen -Y verify -f allowed_signers -I release@gpu-goblin -n gg-release \
 sha256sum --ignore-missing -c SHA256SUMS
 ```
 
-`allowed_signers` फ़ाइल में रिलीज़ की सार्वजनिक कुंजी होती है। इसका फ़िंगरप्रिंट पहली रिलीज़ के साथ इस
-पृष्ठ पर प्रकाशित होगा; इसे उस फ़िंगरप्रिंट से मिलाएँ जो आपको किसी दूसरे माध्यम से मिला हो।
+इस पंक्ति को, जो रिलीज़ की सार्वजनिक कुंजी है, `allowed_signers` नाम की फ़ाइल में सहेजें:
+
+```
+release@gpu-goblin namespaces="gg-release" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVp1adRtKn6v2iU8hG/jSMsIALjae/LkpY3AODuih9v
+```
+
+इसका फ़िंगरप्रिंट `SHA256:673XukOsx9kY85im+4qIA2IRxZU3+bEFVaD2VZwyBcM` है; इसे उस फ़िंगरप्रिंट से
+मिलाएँ जो आपको किसी दूसरे माध्यम से मिला हो।
 
 ## आवश्यकताएँ
 

@@ -28,9 +28,14 @@ ssh-keygen -Y verify -f allowed_signers -I release@gpu-goblin -n gg-release \
 sha256sum --ignore-missing -c SHA256SUMS
 ```
 
-Die Datei `allowed_signers` enthält den öffentlichen Release-Schlüssel. Sein Fingerabdruck wird mit
-der ersten Version auf dieser Seite veröffentlicht; vergleich ihn mit dem, den du über einen anderen
-Kanal erhältst.
+Speichere diese Zeile, den öffentlichen Release-Schlüssel, in einer Datei namens `allowed_signers`:
+
+```
+release@gpu-goblin namespaces="gg-release" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVp1adRtKn6v2iU8hG/jSMsIALjae/LkpY3AODuih9v
+```
+
+Sein Fingerabdruck ist `SHA256:673XukOsx9kY85im+4qIA2IRxZU3+bEFVaD2VZwyBcM`; vergleich ihn mit dem,
+den du über einen anderen Kanal erhältst.
 
 ## Voraussetzungen
 

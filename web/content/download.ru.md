@@ -28,8 +28,14 @@ ssh-keygen -Y verify -f allowed_signers -I release@gpu-goblin -n gg-release \
 sha256sum --ignore-missing -c SHA256SUMS
 ```
 
-Файл `allowed_signers` содержит открытый ключ выпуска. Его отпечаток будет опубликован на этой
-странице вместе с первым выпуском; сравните его с отпечатком, полученным по другому каналу.
+Сохраните эту строку, открытый ключ выпуска, в файл с именем `allowed_signers`:
+
+```
+release@gpu-goblin namespaces="gg-release" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVp1adRtKn6v2iU8hG/jSMsIALjae/LkpY3AODuih9v
+```
+
+Его отпечаток: `SHA256:673XukOsx9kY85im+4qIA2IRxZU3+bEFVaD2VZwyBcM`; сравните его с отпечатком,
+полученным по другому каналу.
 
 ## Системные требования
 
