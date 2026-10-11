@@ -5,8 +5,8 @@ The public website of [GPU Goblin](https://github.com/GPU-Goblin/gg-server),
 computer and for researchers who compute on it; the contributor's account; downloads; security;
 answers. In fifteen languages.
 
-> **Status:** online, for a project in beta preparation. The site only says what the software does
-> today; what is not done yet is said as such.
+> **Status:** online; the grid it describes is in public beta. The site only says what the software
+> does today; what is not done yet is said as such.
 
 ## What is here
 
